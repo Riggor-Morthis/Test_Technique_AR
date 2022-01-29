@@ -5,13 +5,13 @@ using UnityEngine;
 public class ColliderSelectScript : MonoBehaviour
 {
     #region Fields
-    private MouseMovementScript mouseMovement;
+    private MouseMovementScript mouseMovement; //Le script pour nous bouger
     #endregion Fields
 
     #region Methods
     private void Awake()
     {
-        mouseMovement = transform.parent.parent.GetComponent<MouseMovementScript>();
+        mouseMovement = GetComponentInParent<MouseMovementScript>();
     }
 
     private void OnMouseDown()

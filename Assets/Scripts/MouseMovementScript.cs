@@ -6,17 +6,17 @@ public class MouseMovementScript : MonoBehaviour
 {
     #region Fields
     //Privates
-    [SerializeField, Range(1f, 100f)] private float wheelSpeed = 10f;
+    [SerializeField, Range(1f, 100f)] private float wheelSpeed = 10f; //Vitesse de rotation de la molette
 
-    private bool isSelected = false;
+    private bool isSelected = false; //Est-ce qu'on est actuellement en train de bouger
     private bool oneFrame = false; //Pour s'assurer qu'on capte pas l'input de selection et de deselection durant la meme frame
-    private Vector3 previousMouseProjection, currentMouseProjection;
-    private Camera mainCamera;
-    private Plane flatPlane = new Plane(Vector3.up, Vector3.zero);
-    private float currentDistance;
-    private Ray currentRay;
-    private Vector3 currentMovementVector;
-    private bool verticalTranslation = false;
+    private Vector3 previousMouseProjection, currentMouseProjection; //La position de notre souris, projettee sur le plat plan
+    private Camera mainCamera; //Notre camera
+    private Plane flatPlane = new Plane(Vector3.up, Vector3.zero); //Le plan plat, normale verticale et passant par le "pied" de l'objet
+    private float currentDistance; //Distance sur le rayon pour le plat
+    private Ray currentRay; //Un rayon
+    private Vector3 currentMovementVector; //Le mouvement de notre souris
+    private bool verticalTranslation = false; //Est-ce qu'on est en train de faire un mouvement vertical
     #endregion Fields
 
     #region Methods
@@ -36,7 +36,7 @@ public class MouseMovementScript : MonoBehaviour
             isSelected = true;
             oneFrame = true;
             //On redefinit notre plan de projection au passage
-            flatPlane = new Plane(Vector3.up, new Vector3(0f, transform.position.y * .5f, 0f));
+            flatPlane = new Plane(Vector3.up, new Vector3(0f, transform.position.y, 0f));
             //On recupere un point de reference
             previousMouseProjection = GetMouseProjection();
         }
@@ -64,6 +64,7 @@ public class MouseMovementScript : MonoBehaviour
                 else if(Input.GetMouseButtonUp(1) && verticalTranslation)
                 {
                     verticalTranslation = false;
+                    flatPlane = new Plane(Vector3.up, new Vector3(0f, transform.position.y, 0f));
                     previousMouseProjection = GetMouseProjection();
                 }
 
