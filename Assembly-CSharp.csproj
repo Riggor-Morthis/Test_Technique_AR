@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{2098322D-5BA5-EDE4-75DF-FACBA37F33E5}</ProjectGuid>
+    <ProjectGuid>{9E354957-6E87-9DA6-FB00-3EF38C5492D2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\MouseMovementScript.cs" />
+    <Compile Include="Assets\Scripts\ColliderSelectScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

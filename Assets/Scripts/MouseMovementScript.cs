@@ -28,7 +28,7 @@ public class MouseMovementScript : MonoBehaviour
     /// <summary>
     /// Lorsqu'on nous clique dessus on peut se mettre "en marche, sauf si on est deja en marche
     /// </summary>
-    private void OnMouseDown()
+    public void GetClicked()
     {
         if (!isSelected)
         {
